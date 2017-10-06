@@ -36,7 +36,8 @@ public class Cliente {
                     listarArchivosLocales(); break;
                 case 3:
                     verArchivosRemotos(); break;
-                case 4: //Luego
+                case 4:
+                    System.out.println("luego");
                     break;
             }
         }while (opcion != 5);
@@ -44,6 +45,9 @@ public class Cliente {
 
     private void listarArchivosLocales(){
         String lista = Arrays.toString((Directorio.list()));
+        if(lista.length()==2){
+            return;
+        }
         lista = " "+lista.substring(1, lista.length()-1);
         int num = 0;
         System.out.println("\t\t\t\t\t\t\tARCHIVOS LOCALES");
@@ -54,9 +58,13 @@ public class Cliente {
 
     private void verArchivosRemotos() throws IOException{
         OUT.writeUTF("2");
+        String lista = IN.readUTF();
+        if (lista.isEmpty()){
+            return;
+        }
         int num = 0;
         System.out.println("\t\t\t\t\t\t\tARCHIVOS REMOTOS");
-        for(String archivo : (" "+IN.readUTF()).split(",")){
+        for(String archivo : (" "+lista).split(",")){
             System.out.println("\t\t\t\t\t\t\t"+ (++num) +archivo);
         }
     }
@@ -88,8 +96,8 @@ public class Cliente {
         }
     }
 
-
     public static void main(String[] args)throws IOException {
         new Cliente();
     }
 }
+
