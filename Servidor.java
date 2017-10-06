@@ -12,6 +12,9 @@ public class Servidor {
     Servidor() throws IOException{
         ServerSocket server = new ServerSocket(puerto);
         System.out.println("server online...");
+        if(!raiz.exists()){
+            raiz.mkdir();
+        }
 
         //Recibir peticiones siempre
         while (true){
@@ -80,5 +83,4 @@ public class Servidor {
     public static void main(String[] args) throws IOException {
         new Servidor();
     }
-
 }
