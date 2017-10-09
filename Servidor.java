@@ -76,8 +76,17 @@ public class Servidor {
 
     private void Mensaje2() throws IOException{
         String archivos = Arrays.toString((raiz.list()));
-        System.out.println("Enviando lista" + archivos);
-        OUT.writeUTF( archivos.substring(1, archivos.length()-1));
+        System.out.println("Enviando lista de archivos");
+        OUT.writeUTF( archivos.substring(1, archivos.length()-1) );
+
+        File tam [] = raiz.listFiles();
+        long arr [] =  new long[tam.length];
+        for (int i = 0; i < tam.length ; i++) {
+            arr[i] = tam[i].length();
+        }
+
+        String tamanos = Arrays.toString(arr);
+        OUT.writeUTF( tamanos.substring(1, tamanos.length()-1) );
     }
 
     public static void main(String[] args) throws IOException {
