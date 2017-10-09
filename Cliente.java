@@ -59,13 +59,16 @@ public class Cliente {
     private void verArchivosRemotos() throws IOException{
         OUT.writeUTF("2");
         String lista = IN.readUTF();
+        String tamanos = IN.readUTF();
         if (lista.isEmpty()){
             return;
         }
         int num = 0;
+
+        String tam [] = (tamanos).split(",");
         System.out.println("\t\t\t\t\t\t\tARCHIVOS REMOTOS");
         for(String archivo : (" "+lista).split(",")){
-            System.out.println("\t\t\t\t\t\t\t"+ (++num) +archivo);
+            System.out.println("\t\t\t\t\t\t\t"+ (++num) +archivo +"  "+ Long.parseLong(tam[num-1].trim())+ " Bytes");
         }
     }
 
@@ -100,4 +103,3 @@ public class Cliente {
         new Cliente();
     }
 }
-
