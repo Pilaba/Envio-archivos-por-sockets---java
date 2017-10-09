@@ -256,5 +256,5 @@ public class client_ui extends Application{
             this.size = size;
         }
     }
-    
+
 }
