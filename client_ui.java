@@ -14,7 +14,6 @@ import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.Nullable;
 import java.io.*;
 import java.net.*;
 import java.io.IOException;
@@ -204,7 +203,6 @@ public class client_ui extends Application{
             }
         }
 
-        @Nullable
         private ObservableList<Archivito> verArchivosRemotos() throws IOException{
             OUT.writeUTF("2");
             String lista = IN.readUTF();
