@@ -7,9 +7,9 @@ yo
 
 
 # HOW TO
-## CLIENTE PIDE ARCHIVOS AL SERVIDOR
+### CLIENTE PIDE ARCHIVOS AL SERVIDOR
 
-### javac *.java
+##### javac *.java
 
-#### java Servidor
-#### java Cliente
+##### java Servidor
+##### java Cliente
